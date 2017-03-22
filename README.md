@@ -31,6 +31,6 @@
 
 
 # demo  
-cart.html https://github.com/lvzhenbang/shopping/cart.html
+cart.html https://lvzhenbang.github.io/shopping/cart.html
 
-address.html https://github.com/lvzhenbang/shopping/address.html
+address.html https://lvzhenbang.github.io/shopping/address.html
