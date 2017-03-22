@@ -1,0 +1,34 @@
+{
+  "person": [
+    {
+      "name":"lisi",
+      "age": "12",
+      "sex": "man",
+      "isSelect": false
+    },
+    {
+      "name": "zhangsan",
+      "age": "12",
+      "sex": "man",
+      "isSelect": false
+    },
+    {
+      "name": "wangwu",
+      "age": "12",
+      "sex": "man",
+      "isSelect": false
+    },
+    {
+      "name": "maliu",
+      "age": "12",
+      "sex": "man",
+      "isSelect": false
+    },
+    {
+      "name": "daliu",
+      "age": "12",
+      "sex": "man",
+      "isSelect": false
+    }
+  ]
+}
