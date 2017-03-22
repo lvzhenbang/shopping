@@ -5,9 +5,9 @@
 
 课程名称：使用vue2.0实现购物车和地址选配功能
 
-资源链接: http://www.imooc.com/comment/796
+资源链接: <a href="http://www.imooc.com/comment/796">http://www.imooc.com/comment/796</a>
 
-## 本案例的原有功能：
+## 本案例的原有功能
 ### cart.html
 - 商品列表的加载
 - 商品的价格计算
@@ -31,6 +31,6 @@
 
 
 # demo  
-cart.html https://github.com/lvzhenbang/shopping/cart.html
+cart.html <a href="https://github.com/lvzhenbang/shopping/cart.html">https://github.com/lvzhenbang/shopping/cart.html</a>
 
-address.html https://github.com/lvzhenbang/shopping/address.html
+address.html <a href="https://github.com/lvzhenbang/shopping/address.html">https://github.com/lvzhenbang/shopping/address.html</a>
