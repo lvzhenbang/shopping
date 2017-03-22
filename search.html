@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>example</title>
+    <link rel="stylesheet" type="text/css" href="./css/base2.css">
+    <style type="text/css">
+        .persons{
+            width:240px;
+            height:auto;
+            margin: 0 auto;
+        }
+        .filter-name,
+        .filter-person{
+            display: inline-block;
+        }
+
+        .filter-name{
+            width:70px;
+            text-align: right;
+        }
+        .filter-person{
+            width:160px;
+        }
+        .person-item{
+            display: table;
+            width: 200px;
+            height: 30px;
+            line-height: 30px;
+        }
+        .person-item>span{
+            display: table-cell;
+            width: 50px;
+            height:30px;
+            font-family: "Microsoft YaHei UI";
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .person-item>span:first-of-type{
+            text-align:right;
+        }
+
+        .person-item .icon-del {
+            color: #000;
+        }
+        
+        .person-item.check .icon-del{
+            color: #c2ca17;
+        }
+
+        /**
+        * status
+         */
+        .text-error {
+            color: #e02614;
+        }
+        .text-danger {
+            color: #EE7A23;
+        }
+        .text-correct {
+            color: #c2ca17;
+        }
+        .text-decoration {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <ul class="persons">
+        <lable class="filter-name">筛选：</lable>
+        <input class="filter-person" v-model="filterPerson">
+        <li class="person-item" v-for="(person, index) in computedList" v-bind:class="{'check':personIndex==index}" @click="personIndex=index">
+            <span v-text="person.name" v-bind:class="{'text-correct': person.isSelect}" v-on:click="toggleChange(person)"></span>-
+            <span v-text="person.age" v-bind:class="classObject"></span>-
+            <span v-text="person.sex" v-bind:class="[textError,textDecoration]"></span>
+            <span class="icon-del" @click="delConfirm">删除</span>
+        </li>
+        <transition name="fade">
+            <show-msg v-if="showMsg" v-bind:style="{position: 'absolute',top: '20', left: '50%',  backgroundColor: '#cecece'}"></show-msg>
+        </transition>
+    </ul>
+</div>
+<script type="text/javascript" src="./js/lib/vue2.min.js"></script>
+<script type="text/javascript" src="./js/lib/vue-resource.min.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            showMsg: false,
+            filterPerson:'',
+            persons: [],
+            classObject: {
+                active: false,
+                'text-danger': true,
+            },
+            personIndex: 0,
+            textError: 'text-error',
+            textDecoration: 'text-decoration',
+        },
+        components: {
+            'show-msg': {
+                template: '<div><p>你确认要删除吗？</p><span  @click="vm.showMsg=false">取消</span><span @click="vm.delThisItem">确认</span></div>'
+            }
+        },
+        mounted: function(){
+            this.$nextTick(function(){
+                this.$http.get('data/tsconfig.json').then(function(res){
+                    this.persons = res.data.person;
+                })
+            })
+        },
+        filters: {
+
+        },
+        computed: {
+            computedList: function(){
+                var vm = this;
+                return this.persons.filter(function(item){
+                    return item.name.toLowerCase().indexOf(vm.filterPerson.toLowerCase()) !== -1;
+                })
+            }
+        },
+        methods: {
+            toggleChange: function(item){
+                item.isSelect = !item.isSelect;
+            },
+            delConfirm: function(){
+                this.showMsg = true;
+            },
+            delThisItem: function(){
+                this.persons.splice(this.personIndex,1);
+                this.showMsg = false;
+            }
+        }
+    });
+</script>
+</body>
+</html>
