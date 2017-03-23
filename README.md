@@ -31,6 +31,6 @@
 
 
 # demo  
-cart.html <a href="https://lvzhenbang.github.io/shopping/cart.html">https://github.com/lvzhenbang.github.io/shopping/cart.html</a>
+cart.html <a href="https://lvzhenbang.github.io/shopping/cart.html">https://lvzhenbang.github.io/shopping/cart.html</a>
 
 address.html <a href="https://lvzhenbang.github.io/shopping/address.html">https://lvzhenbang.github.io/shopping/address.html</a>
