@@ -1,3 +1,6 @@
+/**
+ * Created by lzb on 17/3/1.
+ */
 var vm = new Vue({
 	el: ".container",
 	data: {
@@ -31,7 +34,7 @@ var vm = new Vue({
 	methods: {
 		queryAddress: function () {
 			var _this = this;
-			let a= 3;
+			var a= 3;
 			this.$http.get("data/address.json").then(function (response) {
 				var res = response.data;
 				if(res.status=="0"){
