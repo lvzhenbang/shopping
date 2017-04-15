@@ -1,3 +1,6 @@
+/**
+ * Created by lzb on 17/3/1.
+ */
 var vm = new Vue({
 	el: ".container",
 	data: {
