@@ -1,5 +1,5 @@
 /**
- * Created by jacksoft on 16/10/22.
+ * Created by lzb on 16/10/22.
  */
 
 window.vm = new Vue({
@@ -53,7 +53,7 @@ window.vm = new Vue({
 			this.isCheckAll();
 		},
 		isCheckAll: function () {
-			let flag = true;
+			var flag = true;
 			this.productList.forEach(function (item) {
 				if(!item.checked){
 					flag = false;
@@ -67,7 +67,7 @@ window.vm = new Vue({
 
 		},
 		calcTotalMoney: function () {
-			let totalMoney = 0;
+			var totalMoney = 0;
 			this.productList.forEach(function (item) {
 				if(item.checked){
 					totalMoney+=item.productPrice*item.productQuentity;
